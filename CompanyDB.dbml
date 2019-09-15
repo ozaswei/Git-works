@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CompanyDB" Class="CompanyDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=CompanyDB;Integrated Security=True" SettingsObjectName="LinqToSqlProject.Properties.Settings" SettingsPropertyName="CompanyDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="Eno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ename" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Job" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Dname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Employee_Select" Method="Employee_Select">
+    <Parameter Name="Dname" Parameter="dname" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="Employee_SelectResult">
+      <Column Name="Eno" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ename" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Job" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Dname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Employee_Insert" Method="Employee_Insert">
+    <Parameter Name="Ename" Parameter="ename" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Job" Parameter="job" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Salary" Parameter="salary" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Dname" Parameter="dname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Eno" Parameter="eno" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
